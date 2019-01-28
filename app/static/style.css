@@ -46,14 +46,20 @@
 .resultItem {
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: flex-start;
     align-content: center;
     align-items: center;
     margin: 3em 0;
-    width: 100%;
+    width: 500px;
 }
 
 .resultInfo {
     margin-left: 5em;
     flex-direction: column;
+    width: 350px;
+}
+
+.imageContainer {
+    width: 150px;
+    text-align: center;
 }
