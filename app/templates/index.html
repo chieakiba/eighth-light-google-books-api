@@ -13,18 +13,23 @@
         {% if content %}
             <h4>Result:</h4>
             <div class="bookResults">
+                <!-- Iterate through the JSON response -->
                 {% for items in content['items'] %}
                     <div class="resultItem">
                         <div class="imageContainer">
+                            <!-- Check if there are images -->
                             {% if items['volumeInfo']['imageLinks'] %}
+                                <!-- Show image if there is an image link -->
                                 <img src="{{ items['volumeInfo']['imageLinks']['smallThumbnail'] }}" alt="{{ items['volumeInfo']['title'] }} Image" />
                             {% else %}
+                                <!-- Else, show "No Image Available" -->
                                 <p>No Image Available</p>
                             {% endif %}
                         </div>
+
+                        <!-- Show title, author, publisher and external information link of each volumeInfo object -->
                         <div class="resultInfo">
                             <p>Title: {{ items['volumeInfo']['title'] }}</p>
-                            
                             <p>Author: 
                                 {% for author in items['volumeInfo']['authors'] %}
                                     {{ author }}
