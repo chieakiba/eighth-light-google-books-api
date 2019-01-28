@@ -15,13 +15,22 @@
             <div class="bookResults">
                 {% for items in content['items'] %}
                     <div class="resultItem">
-                        <div>
-                            <img src="{{ items['volumeInfo']['imageLinks']['smallThumbnail'] }}" alt="{{ items['volumeInfo']['title'] }} Image" />
+                        <div class="imageContainer">
+                            {% if items['volumeInfo']['imageLinks'] %}
+                                <img src="{{ items['volumeInfo']['imageLinks']['smallThumbnail'] }}" alt="{{ items['volumeInfo']['title'] }} Image" />
+                            {% else %}
+                                <p>No Image Available</p>
+                            {% endif %}
                         </div>
                         <div class="resultInfo">
-                            <label>Title: {{ items['volumeInfo']['title'] }}</label>
-                            <label>Author: {{ items['volumeInfo']['authors'][0] }}</label>
-                            <label>Publisher: {{ items['volumeInfo']['publisher'] }}</label>
+                            <p>Title: {{ items['volumeInfo']['title'] }}</p>
+                            
+                            <p>Author: 
+                                {% for author in items['volumeInfo']['authors'] %}
+                                    {{ author }}
+                                {% endfor %}
+                            </p>
+                            <p>Publisher: {{ items['volumeInfo']['publisher'] }}</p>
                             <a target="_blank" class="btn btn-primary" role="button" href="{{ items['volumeInfo']['infoLink'] }}">See more info about this book</a>
                         </div>
                     </div>
