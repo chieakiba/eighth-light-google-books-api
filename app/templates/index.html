@@ -8,7 +8,7 @@
 
     <div>
         {% if content %}
-            <h4>Content:</h4>
+            <h4>Result:</h4>
             <div>
                 {% for items in content['items'] %}
                 <div>
@@ -21,7 +21,7 @@
                         <p>Publisher: {{ items['volumeInfo']['publisher'] }}</p>
                     </div>
                 </div>
-                <a href="/">See more info about this book</a>
+                <a href="{{ items['volumeInfo']['infoLink'] }}">See more info about this book</a>
                 {% endfor %}
             </div>
         {% endif %}
