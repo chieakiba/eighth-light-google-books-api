@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <div class="formContainer">
+        <form class="searchBooksForm" role="form" method="GET" action="{{url_for('lookUpBook')}}">
+            <input class="form-control searchField" type="text" name="usersearch" placeholder="Enter a title of the book" />
+            <button class="btn btn-primary" type="submit">Search</button>
+        </form>
+    </div>
+    
+
+    <div class="resultContainer">
+        {% if content %}
+            <h4>Result:</h4>
+            <div class="bookResults">
+                {% for items in content['items'] %}
+                    <div class="resultItem">
+                        <div>
+                            <img src="{{ items['volumeInfo']['imageLinks']['smallThumbnail'] }}" alt="{{ items['volumeInfo']['title'] }} Image" />
+                        </div>
+                        <div class="resultInfo">
+                            <label>Title: {{ items['volumeInfo']['title'] }}</label>
+                            <label>Author: {{ items['volumeInfo']['authors'][0] }}</label>
+                            <label>Publisher: {{ items['volumeInfo']['publisher'] }}</label>
+                            <a target="_blank" class="btn btn-primary" role="button" href="{{ items['volumeInfo']['infoLink'] }}">See more info about this book</a>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        {% endif %}
+
+        {% if error %}
+            <h4>Error:</h4>
+            <div class="alert alert-danger" role="alert">
+                {{ error }}
+            </div>
+        {% endif %}
+    </div>
+{% endblock %}
