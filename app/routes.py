@@ -17,8 +17,11 @@ def lookUpBook():
     try:
         # If the request method is GET
         if request.method == "GET":
-            user_search = request.values.get('usersearch')
-            r = requests.get('https://www.googleapis.com/books/v1/volumes?q='+user_search)
+            user_search = request.values.get('usersearch', None)
+            if not user_search:
+                return render_template('index.html', error="Please enter a search term")
+            else:
+                r = requests.get('https://www.googleapis.com/books/v1/volumes?q='+user_search)
             # and if the request is successful, it will return
             # the response in JSON format to the page
             return render_template('index.html', content=json.loads(r.text))
