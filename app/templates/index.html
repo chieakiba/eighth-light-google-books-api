@@ -3,7 +3,7 @@
 {% block content %}
     <div class="formContainer">
         <form class="searchBooksForm" role="form" method="GET" action="{{url_for('lookUpBook')}}">
-            <input class="form-control searchField" type="text" name="usersearch" placeholder="Enter a title of the book" />
+            <input class="form-control searchField" type="text" name="usersearch" placeholder="Enter a title of the book" required />
             <button class="btn btn-primary" type="submit">Search</button>
         </form>
     </div>
