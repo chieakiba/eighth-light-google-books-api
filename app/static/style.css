@@ -1,0 +1,59 @@
+.page-container {
+    width: 90%;
+    margin: 5em auto;
+}
+
+.header-row {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.home {
+    position: absolute;
+    right: 3em;
+    top: 1em;
+}
+
+.formContainer {
+    width: 50%;
+    margin: 3em auto;
+}
+
+.searchBooksForm {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    align-items: center;
+    justify-content: center;
+}
+
+.searchField {
+    margin: 1em 0 2em;
+}
+
+.resultContainer {
+    width: 50%;
+    margin: 0 auto;
+}
+
+.bookResults {
+    width: 75%;
+}
+
+.resultItem {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-content: center;
+    align-items: center;
+    margin: 3em 0;
+    width: 100%;
+}
+
+.resultInfo {
+    margin-left: 5em;
+    flex-direction: column;
+}

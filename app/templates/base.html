@@ -1,10 +1,17 @@
 <html>
     <head>
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+        <link rel="stylesheet" href="{{ url_for('static',filename='style.css') }}">
+        <link rel="shortcut icon" href="{{ url_for('static',filename='favicon.ico') }}" type="image/x-icon">
         <title>Welcome to 8th Light Google Books API app</title>
     </head>
     <body>
-        <a href="/">Home</a>
-        {% block content %}{% endblock %}
+        <div class="page-container">
+            <a class="home" href="/">Home</a>
+            <div class="header-row">
+                <h1>Find Your Book!</h1>
+            </div>
+            {% block content %}{% endblock %}
+        </div>
     </body>
 </html>
