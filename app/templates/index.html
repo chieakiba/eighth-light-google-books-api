@@ -1,5 +1,34 @@
 {% extends "base.html" %}
 
 {% block content %}
-    <p>hi</p>
+    <form role="form" method="GET" action="{{url_for('lookUpBook')}}">
+        <input type="text" name="usersearch" placeholder="Enter a title of the book" />
+        <button type="submit">Look up</button>
+    </form>
+
+    <div>
+        {% if content %}
+            <h4>Content:</h4>
+            <div>
+                {% for items in content['items'] %}
+                <div>
+                    <div>
+                        <img src="{{ items['volumeInfo']['imageLinks']['smallThumbnail'] }}" alt="{{ items['volumeInfo']['title'] }} Image" />
+                    </div>
+                    <div>
+                        <p>Title: {{ items['volumeInfo']['title'] }}</p>
+                        <p>Author: {{ items['volumeInfo']['authors'][0] }}</p>
+                        <p>Publisher: {{ items['volumeInfo']['publisher'] }}</p>
+                    </div>
+                </div>
+                <a href="/">See more info about this book</a>
+                {% endfor %}
+            </div>
+        {% endif %}
+
+        {% if error %}
+            <h4>Error:</h4>
+            <p>{{ error }}</p>
+        {% endif %}
+    </div>
 {% endblock %}
