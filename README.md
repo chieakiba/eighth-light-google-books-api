@@ -9,7 +9,6 @@ The application allows you to do the following:
 - [x] From each list item, you should also be able to navigate to more information about the book, but this information does not necessarily need to appear on a page within your application. In other words, this could link out to an external site with more information about that particular book.
 
 ## Set up
----
 ### **What's required**
 This repo requires the following to run it smoothly on your local machine:
 
